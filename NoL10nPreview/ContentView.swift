@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    func formatted(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(formatted(date: .now))
         }
         .padding()
     }
